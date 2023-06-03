@@ -1,24 +1,28 @@
 # Intuition
-To solve it in a better way by reusing the pre-computed palindrome 
+
+To solve it in a better way by reusing the pre-computed palindrome
 
 # Approach
+
 [Manacher's Algorithm](https://en.wikipedia.org/wiki/Longest_palindromic_substring)
 
 In Manacher's Algorithm, we will be reusing the previously identified palindrome by exploiting the palindrome inside another palindrome.
 
-
 # Complexity
-- Time complexity: `O(n)`
-    -   This algorithm runs at O(n) time because the inner loop will also increment the center variable based on the pre-computed palindrome with the previous center
-- Space complexity: `O(n)`
-    -   Since the extra space is due to the palindromeRadii, which stores the radius of the longest palindrome centered at its index
 
+- Time complexity: `O(n)`
+  - This algorithm runs at O(n) time because the inner loop will also increment the center variable based on the pre-computed palindrome with the previous center
+- Space complexity: `O(n)`
+  - Since the extra space is due to the palindromeRadii, which stores the radius of the longest palindrome centered at its index
 
 # Limitation
+
 This algorithm won't work if the longest palindrome is of even length, to make it work for an even palindrome we need to insert a bogus character ('|' -> Bogus character) in between each character including the boundaries
 
 # Code
+
 `Python3`
+
 ```
 class Solution:
     BOGUS_CHAR = '|'
@@ -83,9 +87,11 @@ class Solution:
 ```
 
 # Cool Test cases
+
 There are three cases that are if | else-if | else
 
 When the palindrome at mirroed center
+
 - lies inside the old center ('abcbpbcba')
 - extends outside the old center ('ababc')
 - equal to the old center ('abcbpbcbp')
